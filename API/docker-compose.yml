@@ -1,0 +1,28 @@
+version: '3.3'
+
+services: 
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysqlcontainer
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - ./dbinit/init.sql:/docker-entrypoint-initdb/0_init.sql
+      - $HOME/database:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      - MYSQL_DATABASE=userdb
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=p4$$w0rd
+      - MYSQL_ROOT_PASSWORD=p4$$w0rd
+      - SERVICE_TAGS=dev
+      - SERVICE_NAME=mysql
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge

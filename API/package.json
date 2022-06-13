@@ -1,0 +1,31 @@
+{
+  "name": "cruduserionix",
+  "version": "1.0.0",
+  "description": "Proyecto creado para resolver temas de entrevista para Ionix",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "NODE_ENV=dev nodemon src/index.js",
+    "start:prod": "NODE_ENV=prod nodemon src/index.js"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "MySQL",
+    "API"
+  ],
+  "author": "JAG",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "ip": "^1.1.8",
+    "mysql": "^2.18.1",
+    "pino": "^8.0.0",
+    "pino-pretty": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
