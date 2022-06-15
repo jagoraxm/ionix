@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start:dev": "NODE_ENV=dev nodemon src/index.js",
-    "start:prod": "NODE_ENV=prod nodemon src/index.js"
+    "start:prod": "NODE_ENV=prod nodemon src/index.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [
     "NodeJS",
@@ -26,6 +27,8 @@
     "pino-pretty": "^8.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
   }
 }

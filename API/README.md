@@ -13,6 +13,8 @@ A list of technologies used within the project:
 * [CORS]: Version 2.8.5
 * [Express]: Version 4.18.1
 * [Pino]: Version 8.0.0
+* [Jest]: Version 28.1.1
+* [Supertest]: Version 6.2.3
 ## Installation
 ***
 Una pequeña INTRO para la instalación. En caso de ejecutarlo en modo DEV
@@ -31,3 +33,19 @@ $ cd ../path/to/the/file
 $ docker-compose up -d --build
 ```
 Información extra: Para este caso se genera desde el archivo docker-compose una imagen para MySQL, con este punto existe un problema con los GRANTS por lo que la BD real que se referencia en el código se encuentra en un servidor en la nube.
+## Testing
+***
+Para ejecutar las pruebas unitarias dentro del proyecto basta con ejecutar el siguiente comando...
+```
+npm run test
+```
+Cabe mencionar que si estas en ambiente Linux o MAC de la linea del package.json de esta forma: 
+```
+"test": "NODE_OPTIONS=--experimental-vm-modules jest"
+```
+
+En caso de que estes en ambiente Windows dejarlo de la siguiente forma:
+```
+"test": "set NODE_OPTIONS=--experimental-vm-modules jest"
+```
+Información extra: Se agregaron solo validaciones de EndPoints, por el tiempo de atención del requerimiento habría que robustecer las validaciones como parametros de entrada y salida, reglas de negocio, etc...
