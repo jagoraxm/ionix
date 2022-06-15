@@ -22,6 +22,31 @@ services:
       - SERVICE_NAME=mysql
     networks:
       - internalnet
+  
+  nodeapp:
+    container_name: nodeappcontainer
+    build: .
+    image: nodeap:v1
+    volumes:
+      - $HOME/nodeapp:/code
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    environment:
+      - DB_HOST=68.70.164.5
+      - DB_PORT=3306
+      - DB_USER=mouchane_userdb_user
+      - DB_PASSWORD=Suecia1357911
+      - DB_NAME=mouchane_userdb
+      - DB_CONNECTION_LIMIT=20
+      - SERVICE_TAGS=prod
+      - SERVICE_NAME=nodeappservice
+      - SERVER_PORT=3000
+    depends_on:
+      - mysql-db
+    networks:
+      - internalnet
 
 networks:
   internalnet:

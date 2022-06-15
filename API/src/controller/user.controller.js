@@ -13,7 +13,7 @@ const HttpStatus = {
 };
 
 export const getUsers = (req, res) => {
-    logger.info(`${req.method} ${req.originalurl}, recorriendo usuarios`);
+    logger.info(`${req.method} ${req.originalUrl}, recorriendo usuarios`);
     database.query(QUERY.SELECT_USERS, (error, results) => {
         if(!results) {
             res.status(HttpStatus.OK.code)
@@ -26,7 +26,7 @@ export const getUsers = (req, res) => {
 }
 
 export const getUser = (req, res) => {
-    logger.info(`${req.method} ${req.originalurl}, creando usuario`);
+    logger.info(`${req.method} ${req.originalUrl}, creando usuario`);
     database.query(QUERY.SELECT_USER, [req.params.id], (error, results) => {
         if(!results[0]) {
             logger.error(error.message);
@@ -40,7 +40,8 @@ export const getUser = (req, res) => {
 }
 
 export const createUser = (req, res) => {
-    logger.info(`${req.method} ${req.originalurl}, creando usuario`);
+    logger.info(`${req.method} ${req.originalUrl}, creando usuario`);
+    logger.info(QUERY.CREATE_USER);
     database.query(QUERY.CREATE_USER, Object.values(req.body), (error, results) => {
         if(!results) {
             logger.error(error.message);
@@ -55,7 +56,7 @@ export const createUser = (req, res) => {
 }
 
 export const updateUser = (req, res) => {
-    logger.info(`${req.method} ${req.originalurl}, creando usuario`);
+    logger.info(`${req.method} ${req.originalUrl}, creando usuario`);
     database.query(QUERY.SELECT_USER, [req.params.id], (error, results) => {
         if(!results[0]) {
             logger.error(error.message);
@@ -78,7 +79,7 @@ export const updateUser = (req, res) => {
 }
 
 export const deleteUser = (req, res) => {
-    logger.info(`${req.method} ${req.originalurl}, borrando usuario`);
+    logger.info(`${req.method} ${req.originalUrl}, borrando usuario`);
     database.query(QUERY.DELETE_USER, [req.params.id], (error, results) => {
         if(!results.affectedRows > 0) {
             res.status(HttpStatus.OK.code)

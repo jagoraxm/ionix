@@ -1,0 +1,35 @@
+## Table of Contents
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+### General Info
+***
+API diseñada para realizar un CRUD de usuarios sencillo, basado en directrices puntuales en sentencias de requerimientos.
+### Screenshot
+![Image text](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+## Technologies
+***
+A list of technologies used within the project:
+* [NodeJS](https://example.com): Version 12.3 
+* [MySQL](https://example.com): Version 2.18.2
+* [CORS](https://example.com): Version 2.8.5
+* [Express](https://example.com): Version 4.18.1
+* [Pino](https://example.com): Version 8.0.0
+## Installation
+***
+Una pequeña INTRO para la instalación. En caso de ejecutarlo en modo DEV
+```
+$ git clone https://github.com/jagoraxm/ionix.git
+$ cd ../path/to/the/file
+$ npm install
+$ npm run start:dev
+```
+
+***
+Si se desea ejecutar desde el ambiente dockerizado...
+```
+$ git clone https://github.com/jagoraxm/ionix.git
+$ cd ../path/to/the/file
+$ docker-compose up -d --build
+```
+Información extra: Para este caso se genera desde el archivo docker-compose una imagen para MySQL, con este punto existe un problema con los GRANTS por lo que la BD real que se referencia en el código se encuentra en un servidor en la nube.
