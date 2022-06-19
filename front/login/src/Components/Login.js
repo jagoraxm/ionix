@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { login } from '../features/userSlice';
+import axios from 'axios';
 import './Login.css';
 
 export const Login = () => {
@@ -9,16 +10,30 @@ export const Login = () => {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(
-            login({
-                name: name, 
-                password: password,
-                loggedIn: true
-            })
-        );
+        const user = {
+            username: name,
+            password
+        }
+
+        await axios.post(`https://localhost:3000/api/auth`, { user })
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            
+            dispatch(
+                login({
+                    name: name, 
+                    password: password,
+                    loggedIn: true
+                })
+            );
+        })
+
+        console.log('ALGO FALLO')
+        
     }
 
     return (
@@ -40,7 +55,7 @@ export const Login = () => {
                 />
 
                 <button type='submit' className='submit__btn'>
-                    Submit
+                    Ingresar
                 </button>
             </form>
         </div>

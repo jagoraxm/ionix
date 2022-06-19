@@ -18,11 +18,47 @@ usersRoutes.route('/')
      *             description: OK
      */
     .get(getUsers)
+    /**
+     * @swagger
+     * /user:
+     *    post:
+     *       description: Crear usuario
+     *       responses:
+     *          200:
+     *             description: OK
+     */
     .post(createUser);
 
 usersRoutes.route('/:id')
+    /**
+     * @swagger
+     * /user/:id:
+     *    get:
+     *       description: Obtener un usuario
+     *       responses:
+     *          200:
+     *             description: OK
+     */
     .get(getUser)
+    /**
+     * @swagger
+     * /user/:id:
+     *    put:
+     *       description: Actualizar usuario
+     *       responses:
+     *          200:
+     *             description: OK
+     */
     .put(updateUser)
+    /**
+     * @swagger
+     * /user/:id:
+     *    delete:
+     *       description: Borrar usuario
+     *       responses:
+     *          200:
+     *             description: OK
+     */
     .delete(deleteUser);
 
 export default usersRoutes;

@@ -3,7 +3,8 @@ const QUERY = {
     SELECT_USER: 'SELECT * FROM users WHERE id = ?',
     CREATE_USER: 'INSERT INTO users (firstname, lastname, email, username, password, imagen) VALUES (?,?,?,?,?,?)',
     UPDATE_USER: 'UPDATE users SET firstname = ?, lastname = ?, email=?, username = ?, password = ?, imagen = ? WHERE id = ?',
-    DELETE_USER: 'DELETE FROM users WHERE id = ?',
+    DELETE_USER: 'DELETE FROM users WHERE id = ?', 
+    LOGIN_USER: 'SELECT * FROM users WHERE username = ? AND password = ?',
 }
 
 export default QUERY;
